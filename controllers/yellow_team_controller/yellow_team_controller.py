@@ -25,10 +25,7 @@ def initialize_robot():
 def process_receiver_data():
     message = receiver.getString()
     
-    if message == 'RESET':
-        print("Reset signal received")  # added print statement
-        initialize_robot()
-    else:
+    if message != 'RESET':
         ball_x, ball_y = map(float, message.split())
         
         global last_direction_change_time
